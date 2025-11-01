@@ -1,0 +1,1081 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Impromptu Speaking Practice</title>
+  <style>
+    :root {
+  /* Primitive Color Tokens */
+  --color-white: rgba(255, 255, 255, 1);
+  --color-black: rgba(0, 0, 0, 1);
+  --color-cream-50: rgba(252, 252, 249, 1);
+  --color-cream-100: rgba(255, 255, 253, 1);
+  --color-gray-200: rgba(245, 245, 245, 1);
+  --color-gray-300: rgba(167, 169, 169, 1);
+  --color-gray-400: rgba(119, 124, 124, 1);
+  --color-slate-500: rgba(98, 108, 113, 1);
+  --color-brown-600: rgba(94, 82, 64, 1);
+  --color-charcoal-700: rgba(31, 33, 33, 1);
+  --color-charcoal-800: rgba(38, 40, 40, 1);
+  --color-slate-900: rgba(19, 52, 59, 1);
+  --color-teal-300: rgba(50, 184, 198, 1);
+  --color-teal-400: rgba(45, 166, 178, 1);
+  --color-teal-500: rgba(33, 128, 141, 1);
+  --color-teal-600: rgba(29, 116, 128, 1);
+  --color-teal-700: rgba(26, 104, 115, 1);
+  --color-teal-800: rgba(41, 150, 161, 1);
+  --color-red-400: rgba(255, 84, 89, 1);
+  --color-red-500: rgba(192, 21, 47, 1);
+  --color-orange-400: rgba(230, 129, 97, 1);
+  --color-orange-500: rgba(168, 75, 47, 1);
+
+  /* RGB versions for opacity control */
+  --color-brown-600-rgb: 94, 82, 64;
+  --color-teal-500-rgb: 33, 128, 141;
+  --color-slate-900-rgb: 19, 52, 59;
+  --color-slate-500-rgb: 98, 108, 113;
+  --color-red-500-rgb: 192, 21, 47;
+  --color-red-400-rgb: 255, 84, 89;
+  --color-orange-500-rgb: 168, 75, 47;
+  --color-orange-400-rgb: 230, 129, 97;
+
+  /* Semantic Color Tokens (Light Mode) */
+  --color-background: var(--color-cream-50);
+  --color-surface: var(--color-cream-100);
+  --color-text: var(--color-slate-900);
+  --color-text-secondary: var(--color-slate-500);
+  --color-primary: var(--color-teal-500);
+  --color-primary-hover: var(--color-teal-600);
+  --color-primary-active: var(--color-teal-700);
+  --color-secondary: rgba(var(--color-brown-600-rgb), 0.12);
+  --color-secondary-hover: rgba(var(--color-brown-600-rgb), 0.2);
+  --color-secondary-active: rgba(var(--color-brown-600-rgb), 0.25);
+  --color-border: rgba(var(--color-brown-600-rgb), 0.2);
+  --color-btn-primary-text: var(--color-cream-50);
+  --color-card-border: rgba(var(--color-brown-600-rgb), 0.12);
+  --color-card-border-inner: rgba(var(--color-brown-600-rgb), 0.12);
+  --color-error: var(--color-red-500);
+  --color-success: var(--color-teal-500);
+  --color-warning: var(--color-orange-500);
+  --color-info: var(--color-slate-500);
+  --color-focus-ring: rgba(var(--color-teal-500-rgb), 0.4);
+
+  /* Typography */
+  --font-family-base: "FKGroteskNeue", "Geist", "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --font-size-xs: 11px;
+  --font-size-sm: 12px;
+  --font-size-base: 14px;
+  --font-size-md: 14px;
+  --font-size-lg: 16px;
+  --font-size-xl: 18px;
+  --font-size-2xl: 20px;
+  --font-size-3xl: 24px;
+  --font-size-4xl: 30px;
+  --font-weight-normal: 400;
+  --font-weight-medium: 500;
+  --font-weight-semibold: 550;
+  --font-weight-bold: 600;
+  --line-height-tight: 1.2;
+  --line-height-normal: 1.5;
+  --letter-spacing-tight: -0.01em;
+
+  /* Spacing */
+  --space-8: 8px;
+  --space-12: 12px;
+  --space-16: 16px;
+  --space-20: 20px;
+  --space-24: 24px;
+  --space-32: 32px;
+  --space-48: 48px;
+  --space-64: 64px;
+
+  /* Border Radius */
+  --radius-sm: 6px;
+  --radius-base: 8px;
+  --radius-md: 10px;
+  --radius-lg: 12px;
+  --radius-xl: 16px;
+  --radius-full: 9999px;
+
+  /* Shadows */
+  --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.04), 0 1px 2px rgba(0, 0, 0, 0.02);
+  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.04), 0 2px 4px -1px rgba(0, 0, 0, 0.02);
+  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.04), 0 4px 6px -2px rgba(0, 0, 0, 0.02);
+
+  /* Animation */
+  --duration-fast: 150ms;
+  --duration-normal: 250ms;
+  --ease-standard: cubic-bezier(0.16, 1, 0.3, 1);
+
+  /* Custom colors for phases */
+  --color-preparation: rgba(230, 129, 97, 0.15);
+  --color-preparation-text: var(--color-orange-500);
+  --color-speaking: rgba(33, 128, 141, 0.15);
+  --color-speaking-text: var(--color-teal-600);
+  --color-complete: rgba(33, 128, 141, 0.15);
+  --color-complete-text: var(--color-teal-600);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --color-gray-400-rgb: 119, 124, 124;
+    --color-teal-300-rgb: 50, 184, 198;
+    --color-gray-300-rgb: 167, 169, 169;
+    --color-gray-200-rgb: 245, 245, 245;
+
+    --color-background: var(--color-charcoal-700);
+    --color-surface: var(--color-charcoal-800);
+    --color-text: var(--color-gray-200);
+    --color-text-secondary: rgba(var(--color-gray-300-rgb), 0.7);
+    --color-primary: var(--color-teal-300);
+    --color-primary-hover: var(--color-teal-400);
+    --color-primary-active: var(--color-teal-800);
+    --color-secondary: rgba(var(--color-gray-400-rgb), 0.15);
+    --color-secondary-hover: rgba(var(--color-gray-400-rgb), 0.25);
+    --color-secondary-active: rgba(var(--color-gray-400-rgb), 0.3);
+    --color-border: rgba(var(--color-gray-400-rgb), 0.3);
+    --color-btn-primary-text: var(--color-slate-900);
+    --color-card-border: rgba(var(--color-gray-400-rgb), 0.2);
+    --color-card-border-inner: rgba(var(--color-gray-400-rgb), 0.15);
+    --color-error: var(--color-red-400);
+    --color-success: var(--color-teal-300);
+    --color-warning: var(--color-orange-400);
+    --color-info: var(--color-gray-300);
+    --color-focus-ring: rgba(var(--color-teal-300-rgb), 0.4);
+
+    --color-preparation: rgba(230, 129, 97, 0.2);
+    --color-preparation-text: var(--color-orange-400);
+    --color-speaking: rgba(50, 184, 198, 0.2);
+    --color-speaking-text: var(--color-teal-300);
+    --color-complete: rgba(50, 184, 198, 0.2);
+    --color-complete-text: var(--color-teal-300);
+  }
+}
+
+@font-face {
+  font-family: 'FKGroteskNeue';
+  src: url('https://r2cdn.perplexity.ai/fonts/FKGroteskNeue.woff2') format('woff2');
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: var(--font-family-base);
+  background-color: var(--color-background);
+  color: var(--color-text);
+  line-height: var(--line-height-normal);
+  -webkit-font-smoothing: antialiased;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: var(--space-32) var(--space-24);
+  width: 100%;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.header {
+  text-align: center;
+  margin-bottom: var(--space-48);
+}
+
+.header h1 {
+  font-size: var(--font-size-4xl);
+  font-weight: var(--font-weight-bold);
+  color: var(--color-text);
+  margin-bottom: var(--space-12);
+  letter-spacing: var(--letter-spacing-tight);
+}
+
+.header p {
+  font-size: var(--font-size-lg);
+  color: var(--color-text-secondary);
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+.card {
+  background-color: var(--color-surface);
+  border-radius: var(--radius-xl);
+  border: 1px solid var(--color-card-border);
+  box-shadow: var(--shadow-lg);
+  padding: var(--space-48);
+  text-align: center;
+  transition: all var(--duration-normal) var(--ease-standard);
+}
+
+.card.preparation-phase {
+  background-color: var(--color-preparation);
+  border-color: var(--color-preparation-text);
+}
+
+.card.speaking-phase {
+  background-color: var(--color-speaking);
+  border-color: var(--color-speaking-text);
+}
+
+.card.complete-phase {
+  background-color: var(--color-complete);
+  border-color: var(--color-complete-text);
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--space-16) var(--space-32);
+  border-radius: var(--radius-base);
+  font-size: var(--font-size-lg);
+  font-weight: var(--font-weight-medium);
+  cursor: pointer;
+  transition: all var(--duration-normal) var(--ease-standard);
+  border: none;
+  text-decoration: none;
+  gap: var(--space-8);
+}
+
+.btn:focus-visible {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 2px;
+}
+
+.btn-primary {
+  background: var(--color-primary);
+  color: var(--color-btn-primary-text);
+}
+
+.btn-primary:hover {
+  background: var(--color-primary-hover);
+  transform: translateY(-1px);
+  box-shadow: var(--shadow-md);
+}
+
+.btn-primary:active {
+  background: var(--color-primary-active);
+  transform: translateY(0);
+}
+
+.btn-secondary {
+  background: var(--color-secondary);
+  color: var(--color-text);
+  border: 1px solid var(--color-border);
+}
+
+.btn-secondary:hover {
+  background: var(--color-secondary-hover);
+}
+
+.btn-secondary:active {
+  background: var(--color-secondary-active);
+}
+
+.btn-sm {
+  padding: var(--space-8) var(--space-16);
+  font-size: var(--font-size-sm);
+}
+
+.btn-icon {
+  padding: var(--space-12);
+  border-radius: var(--radius-base);
+  background: var(--color-secondary);
+  color: var(--color-text);
+  border: 1px solid var(--color-border);
+  cursor: pointer;
+  transition: all var(--duration-normal) var(--ease-standard);
+}
+
+.btn-icon:hover {
+  background: var(--color-secondary-hover);
+}
+
+.topic-counter {
+  font-size: var(--font-size-sm);
+  color: var(--color-text-secondary);
+  margin-bottom: var(--space-24);
+  font-weight: var(--font-weight-medium);
+}
+
+.category-badge {
+  display: inline-block;
+  padding: var(--space-8) var(--space-16);
+  background: var(--color-secondary);
+  color: var(--color-text-secondary);
+  border-radius: var(--radius-full);
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-medium);
+  margin-bottom: var(--space-24);
+}
+
+.topic-text {
+  font-size: var(--font-size-3xl);
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-text);
+  margin: var(--space-32) 0;
+  line-height: var(--line-height-tight);
+  letter-spacing: var(--letter-spacing-tight);
+}
+
+.phase-label {
+  font-size: var(--font-size-base);
+  font-weight: var(--font-weight-medium);
+  color: var(--color-text-secondary);
+  margin-bottom: var(--space-16);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.phase-label.preparation {
+  color: var(--color-preparation-text);
+}
+
+.phase-label.speaking {
+  color: var(--color-speaking-text);
+}
+
+.timer {
+  font-size: 72px;
+  font-weight: var(--font-weight-bold);
+  color: var(--color-text);
+  margin: var(--space-24) 0;
+  font-variant-numeric: tabular-nums;
+  letter-spacing: -0.02em;
+}
+
+.timer.pulse {
+  animation: pulse 1s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.8;
+    transform: scale(0.98);
+  }
+}
+
+.progress-bar-container {
+  width: 100%;
+  height: 6px;
+  background: var(--color-secondary);
+  border-radius: var(--radius-full);
+  overflow: hidden;
+  margin: var(--space-32) 0;
+}
+
+.progress-bar {
+  height: 100%;
+  background: var(--color-primary);
+  border-radius: var(--radius-full);
+  transition: width 0.3s ease-out;
+}
+
+.controls {
+  display: flex;
+  gap: var(--space-12);
+  justify-content: center;
+  align-items: center;
+  margin-top: var(--space-32);
+  flex-wrap: wrap;
+}
+
+.settings-icon {
+  position: fixed;
+  top: var(--space-24);
+  right: var(--space-24);
+}
+
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.6);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  padding: var(--space-24);
+}
+
+.modal {
+  background: var(--color-surface);
+  border-radius: var(--radius-xl);
+  padding: var(--space-32);
+  max-width: 400px;
+  width: 100%;
+  border: 1px solid var(--color-card-border);
+  box-shadow: var(--shadow-lg);
+}
+
+.modal h2 {
+  font-size: var(--font-size-2xl);
+  font-weight: var(--font-weight-semibold);
+  margin-bottom: var(--space-24);
+  color: var(--color-text);
+}
+
+.modal-content {
+  margin-bottom: var(--space-24);
+}
+
+.form-group {
+  margin-bottom: var(--space-20);
+}
+
+.form-group label {
+  display: block;
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-medium);
+  color: var(--color-text);
+  margin-bottom: var(--space-8);
+}
+
+.form-control {
+  width: 100%;
+  padding: var(--space-12) var(--space-16);
+  font-size: var(--font-size-base);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-base);
+  background: var(--color-background);
+  color: var(--color-text);
+  font-family: var(--font-family-base);
+}
+
+.form-control:focus {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 0;
+}
+
+.modal-actions {
+  display: flex;
+  gap: var(--space-12);
+  justify-content: flex-end;
+}
+
+.hidden {
+  display: none !important;
+}
+
+.fade-in {
+  animation: fadeIn 0.4s ease-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.complete-message {
+  font-size: var(--font-size-xl);
+  color: var(--color-success);
+  margin: var(--space-32) 0;
+  font-weight: var(--font-weight-medium);
+}
+
+.encouragement {
+  font-size: var(--font-size-base);
+  color: var(--color-text-secondary);
+  margin-top: var(--space-16);
+  font-style: italic;
+}
+
+/* Keyboard shortcut hints */
+.shortcuts {
+  position: fixed;
+  bottom: var(--space-24);
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: var(--space-16);
+  font-size: var(--font-size-xs);
+  color: var(--color-text-secondary);
+  background: var(--color-surface);
+  padding: var(--space-8) var(--space-16);
+  border-radius: var(--radius-base);
+  border: 1px solid var(--color-card-border);
+}
+
+.shortcut {
+  display: flex;
+  align-items: center;
+  gap: var(--space-8);
+}
+
+.key {
+  background: var(--color-secondary);
+  padding: 2px 6px;
+  border-radius: var(--radius-sm);
+  font-family: var(--font-family-base);
+  font-weight: var(--font-weight-medium);
+}
+
+@media (max-width: 768px) {
+  .container {
+    padding: var(--space-24) var(--space-16);
+  }
+
+  .card {
+    padding: var(--space-32);
+  }
+
+  .header h1 {
+    font-size: var(--font-size-3xl);
+  }
+
+  .header p {
+    font-size: var(--font-size-base);
+  }
+
+  .topic-text {
+    font-size: var(--font-size-xl);
+  }
+
+  .timer {
+    font-size: 56px;
+  }
+
+  .shortcuts {
+    display: none;
+  }
+
+  .settings-icon {
+    top: var(--space-16);
+    right: var(--space-16);
+  }
+}
+  </style>
+</head>
+<body>
+
+  <!-- Settings Icon -->
+  <div class="settings-icon">
+    <button class="btn-icon" id="settingsBtn" title="Settings">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <circle cx="12" cy="12" r="3"></circle>
+        <path d="M12 1v6m0 6v6m-7-7h6m6 0h6"></path>
+      </svg>
+    </button>
+  </div>
+
+  <div class="container">
+    <!-- Home Screen -->
+    <div id="homeScreen" class="fade-in">
+      <div class="header">
+        <h1>Impromptu Speaking Practice</h1>
+        <p>Practice your impromptu speaking skills with random topics and timed challenges</p>
+      </div>
+      <div class="card">
+        <p class="topic-counter" id="homeTopicCounter">1,100 topics available</p>
+        <button class="btn btn-primary" id="startBtn">Start Practice</button>
+      </div>
+    </div>
+
+    <!-- Practice Screen -->
+    <div id="practiceScreen" class="hidden">
+      <div class="card" id="practiceCard">
+        <div class="topic-counter" id="topicCounter">Topic 1 of 1,100</div>
+        <div class="category-badge" id="categoryBadge">Personal</div>
+        <div class="topic-text" id="topicText">Loading topic...</div>
+        
+        <div class="phase-label" id="phaseLabel">Preparation Time</div>
+        <div class="timer" id="timer">00:10</div>
+        
+        <div class="progress-bar-container">
+          <div class="progress-bar" id="progressBar" style="width: 100%;"></div>
+        </div>
+
+        <div class="encouragement" id="encouragement"></div>
+        
+        <div class="controls" id="controls">
+          <button class="btn btn-secondary btn-sm" id="pauseBtn">Pause</button>
+          <button class="btn btn-secondary btn-sm" id="skipBtn">Skip Topic</button>
+          <button class="btn btn-secondary btn-sm" id="resetBtn">Reset</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Complete Screen -->
+    <div id="completeScreen" class="hidden">
+      <div class="card complete-phase">
+        <div class="complete-message">✓ Practice Complete!</div>
+        <p class="encouragement">Great job! Keep practicing to improve your impromptu speaking skills.</p>
+        
+        <div class="controls">
+          <button class="btn btn-primary" id="nextTopicBtn">Try Another Topic</button>
+          <button class="btn btn-secondary" id="homeBtn">Back to Home</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Keyboard Shortcuts -->
+  <div class="shortcuts" id="shortcuts">
+    <div class="shortcut">
+      <span class="key">Space</span>
+      <span>Pause/Resume</span>
+    </div>
+    <div class="shortcut">
+      <span class="key">N</span>
+      <span>Next Topic</span>
+    </div>
+    <div class="shortcut">
+      <span class="key">R</span>
+      <span>Reset</span>
+    </div>
+  </div>
+
+  <!-- Settings Modal -->
+  <div id="settingsModal" class="modal-overlay hidden">
+    <div class="modal">
+      <h2>Settings</h2>
+      <div class="modal-content">
+        <div class="form-group">
+          <label for="speakingDuration">Speaking Time (seconds)</label>
+          <input type="number" id="speakingDuration" class="form-control" min="30" max="300" value="60">
+        </div>
+        <div class="form-group">
+          <label>Presets</label>
+          <div style="display: flex; gap: 8px; flex-wrap: wrap; margin-top: 8px;">
+            <button class="btn btn-secondary btn-sm preset-btn" data-duration="30">30s</button>
+            <button class="btn btn-secondary btn-sm preset-btn" data-duration="60">1m</button>
+            <button class="btn btn-secondary btn-sm preset-btn" data-duration="120">2m</button>
+            <button class="btn btn-secondary btn-sm preset-btn" data-duration="180">3m</button>
+            <button class="btn btn-secondary btn-sm preset-btn" data-duration="300">5m</button>
+          </div>
+        </div>
+      </div>
+      <div class="modal-actions">
+        <button class="btn btn-secondary btn-sm" id="cancelSettingsBtn">Cancel</button>
+        <button class="btn btn-primary btn-sm" id="saveSettingsBtn">Save</button>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // Topics Database - Generated from patterns
+    const topicsData = [
+      {id: 1, category: "Personal", topic: "Describe your morning routine. Explain why."},
+      {id: 2, category: "Technology", topic: "Will artificial intelligence replace teachers? Give examples."},
+      {id: 3, category: "Travel", topic: "What's your dream vacation destination? Share your opinion."},
+      {id: 4, category: "Opinions", topic: "Should plastic bags be banned completely? Describe in detail."},
+      {id: 5, category: "Habits", topic: "What's one habit you want to change? Give reasons."},
+      {id: 6, category: "Relationships", topic: "What makes someone a good friend? Explain why."},
+      {id: 7, category: "Work", topic: "Are remote jobs better than office jobs? Give examples."},
+      {id: 8, category: "Education", topic: "Should exams be optional in schools? Share your opinion."},
+      {id: 9, category: "Entertainment", topic: "Describe your favorite movie and why you love it. Describe in detail."},
+      {id: 10, category: "Future", topic: "What do you think the world will look like in 2050? Give reasons."},
+      {id: 11, category: "Technical Interview", topic: "Describe your favorite data structure and why. Explain why."},
+      {id: 12, category: "Behavioral Interview", topic: "Why do you want to work for X company? Share an example."},
+      {id: 13, category: "Behavioral Interview", topic: "Tell me about a time when you had a conflict with a co-worker. Share an example."},
+      {id: 14, category: "Technical Interview", topic: "Explain a complex algorithm you have implemented. Explain why."},
+      {id: 15, category: "Behavioral Interview", topic: "What is the most challenging aspect of your current project? Share an example."},
+    ];
+
+    // Generate additional topics to reach 1,100
+    const categories = ["Personal", "Technology", "Travel", "Opinions", "Habits", "Relationships", "Work", "Education", "Entertainment", "Future", "Health", "Environment", "Technical Interview", "Behavioral Interview"];
+    const prompts = [
+      "Explain why.", "Give examples.", "Share your opinion.", "Describe in detail.", 
+      "Give reasons.", "Share an example.", "Explain your perspective.", "Provide details.",
+      "What do you think?", "How would you approach this?"
+    ];
+    
+    const topicTemplates = {
+      "Personal": [
+        "Describe your morning routine", "What's your proudest achievement", "Talk about a childhood memory",
+        "Describe your ideal day", "What motivates you daily", "Your favorite hobby and why",
+        "A skill you'd like to learn", "Your biggest fear", "What makes you happy",
+        "Describe your family", "Your evening routine", "A person who inspires you"
+      ],
+      "Technology": [
+        "Will artificial intelligence replace teachers", "Impact of social media on society", 
+        "Should everyone learn to code", "Future of self-driving cars", "Blockchain technology explained",
+        "Virtual reality in education", "Impact of smartphones", "Cloud computing benefits",
+        "Cybersecurity importance", "5G technology impact", "Internet of Things", "Quantum computing"
+      ],
+      "Travel": [
+        "What's your dream vacation destination", "Best travel experience", "Solo vs group travel",
+        "Cultural differences you've noticed", "Most memorable place visited", "Travel on a budget",
+        "Digital nomad lifestyle", "Best city for foodies", "Adventure travel vs relaxation",
+        "Language barriers while traveling", "Eco-friendly travel", "Travel photography tips"
+      ],
+      "Opinions": [
+        "Should plastic bags be banned completely", "Universal basic income", "School uniforms pros and cons",
+        "Death penalty debate", "Voting age discussion", "Fast fashion impact",
+        "Should college be free", "Homework necessity", "Social media age limits",
+        "Electric cars adoption", "Space exploration funding", "Animal testing ethics"
+      ],
+      "Habits": [
+        "What's one habit you want to change", "Morning habits for success", "Building good habits",
+        "Breaking bad habits", "Daily exercise importance", "Reading habit benefits",
+        "Meditation practice", "Sleep schedule importance", "Healthy eating habits",
+        "Time management habits", "Productivity habits", "Networking habits"
+      ],
+      "Relationships": [
+        "What makes someone a good friend", "Maintaining long-distance friendships", 
+        "Work-life balance importance", "Communication in relationships", "Trust building",
+        "Conflict resolution", "Family vs friends priority", "Online vs offline friendships",
+        "Professional relationships", "Mentorship importance", "Setting boundaries", "Empathy importance"
+      ],
+      "Work": [
+        "Are remote jobs better than office jobs", "Ideal work environment", "Career vs passion",
+        "Leadership qualities", "Team vs individual work", "Work-life balance strategies",
+        "Changing careers mid-life", "Entrepreneurship challenges", "Networking importance",
+        "Professional development", "Job satisfaction factors", "Workplace diversity"
+      ],
+      "Education": [
+        "Should exams be optional in schools", "Online vs traditional learning", "Standardized testing",
+        "Homework effectiveness", "Gap year benefits", "Practical vs theoretical learning",
+        "Education system improvements", "Teacher appreciation", "Student mental health",
+        "Lifelong learning importance", "STEM vs humanities", "Study abroad experiences"
+      ],
+      "Entertainment": [
+        "Describe your favorite movie and why you love it", "Streaming vs cinema", "Music impact on mood",
+        "Binge-watching culture", "Reality TV appeal", "Video games as art",
+        "Theater vs film", "Podcast recommendations", "Social media influencers",
+        "Book vs movie adaptations", "Concert experiences", "Stand-up comedy appreciation"
+      ],
+      "Future": [
+        "What do you think the world will look like in 2050", "Career of the future", 
+        "Climate change solutions", "Space colonization", "Future of transportation",
+        "Human augmentation", "Future of education", "Work in 20 years",
+        "Healthcare innovations", "Energy solutions", "City planning future", "Food production future"
+      ],
+      "Health": [
+        "Mental health awareness importance", "Exercise vs diet for health", "Sleep importance",
+        "Stress management techniques", "Healthcare accessibility", "Preventive care",
+        "Mental vs physical health", "Healthy lifestyle tips", "Wellness trends",
+        "Meditation benefits", "Nutrition myths", "Work-related health issues"
+      ],
+      "Environment": [
+        "Climate change individual actions", "Plastic pollution solutions", "Renewable energy",
+        "Sustainable living practices", "Conservation efforts", "Urban green spaces",
+        "Fast fashion environmental impact", "Food waste reduction", "Ocean conservation",
+        "Carbon footprint reduction", "Wildlife protection", "Circular economy"
+      ],
+      "Technical Interview": [
+        "Describe your favorite data structure and why", "Explain a complex algorithm you have implemented",
+        "Object-oriented vs functional programming", "Microservices vs monolithic architecture",
+        "Database optimization techniques", "REST vs GraphQL", "Agile methodology benefits",
+        "Code review importance", "Technical debt management", "System design approach",
+        "Testing strategies", "DevOps practices"
+      ],
+      "Behavioral Interview": [
+        "Why do you want to work for X company", "Tell me about a time when you had a conflict with a co-worker",
+        "What is the most challenging aspect of your current project", "Describe a time you failed",
+        "How do you handle pressure", "Leadership experience example", "Difficult decision you made",
+        "Time you went above and beyond", "Handling constructive criticism", "Team collaboration example",
+        "Adapting to change example", "Problem-solving approach", "Prioritization under deadline",
+        "Disagreement with manager", "Learning from mistakes", "Motivating team members",
+        "Managing multiple projects", "Innovation example", "Customer-focused decision",
+        "Taking initiative", "Dealing with ambiguity", "Cross-functional collaboration",
+        "Diversity and inclusion example", "Risk-taking scenario", "Long-term planning",
+        "Mentoring others", "Receiving feedback", "Cultural fit demonstration",
+        "Why should we hire you"
+      ]
+    };
+
+    // Generate topics to reach 1,100
+    let currentId = 16;
+    const targetTopics = 1100;
+    
+    while (topicsData.length < targetTopics) {
+      for (const category of categories) {
+        if (topicsData.length >= targetTopics) break;
+        
+        const templates = topicTemplates[category] || topicTemplates["Personal"];
+        const template = templates[Math.floor(Math.random() * templates.length)];
+        const prompt = prompts[Math.floor(Math.random() * prompts.length)];
+        
+        topicsData.push({
+          id: currentId++,
+          category: category,
+          topic: `${template}. ${prompt}`
+        });
+      }
+    }
+
+    // Application State
+    let state = {
+      currentScreen: 'home',
+      currentTopic: null,
+      usedTopics: [],
+      availableTopics: [...topicsData],
+      timerInterval: null,
+      timeRemaining: 0,
+      phase: 'preparation', // 'preparation' or 'speaking'
+      isPaused: false,
+      speakingDuration: 60, // seconds
+      preparationDuration: 10, // seconds
+      totalDuration: 0
+    };
+
+    // DOM Elements
+    const homeScreen = document.getElementById('homeScreen');
+    const practiceScreen = document.getElementById('practiceScreen');
+    const completeScreen = document.getElementById('completeScreen');
+    const practiceCard = document.getElementById('practiceCard');
+    const startBtn = document.getElementById('startBtn');
+    const pauseBtn = document.getElementById('pauseBtn');
+    const skipBtn = document.getElementById('skipBtn');
+    const resetBtn = document.getElementById('resetBtn');
+    const nextTopicBtn = document.getElementById('nextTopicBtn');
+    const homeBtn = document.getElementById('homeBtn');
+    const topicCounter = document.getElementById('topicCounter');
+    const categoryBadge = document.getElementById('categoryBadge');
+    const topicText = document.getElementById('topicText');
+    const phaseLabel = document.getElementById('phaseLabel');
+    const timer = document.getElementById('timer');
+    const progressBar = document.getElementById('progressBar');
+    const encouragement = document.getElementById('encouragement');
+    const shortcuts = document.getElementById('shortcuts');
+    const controls = document.getElementById('controls');
+    
+    // Settings
+    const settingsBtn = document.getElementById('settingsBtn');
+    const settingsModal = document.getElementById('settingsModal');
+    const cancelSettingsBtn = document.getElementById('cancelSettingsBtn');
+    const saveSettingsBtn = document.getElementById('saveSettingsBtn');
+    const speakingDurationInput = document.getElementById('speakingDuration');
+    const presetBtns = document.querySelectorAll('.preset-btn');
+
+    // Helper Functions
+    function formatTime(seconds) {
+      const mins = Math.floor(seconds / 60);
+      const secs = seconds % 60;
+      return `${String(mins).padStart(2, '0')}:${String(secs).padStart(2, '0')}`;
+    }
+
+    function getRandomTopic() {
+      if (state.availableTopics.length === 0) {
+        // Reset if all topics used
+        state.availableTopics = [...topicsData];
+        state.usedTopics = [];
+      }
+      
+      const randomIndex = Math.floor(Math.random() * state.availableTopics.length);
+      const topic = state.availableTopics[randomIndex];
+      
+      state.availableTopics.splice(randomIndex, 1);
+      state.usedTopics.push(topic);
+      
+      return topic;
+    }
+
+    function showScreen(screen) {
+      homeScreen.classList.add('hidden');
+      practiceScreen.classList.add('hidden');
+      completeScreen.classList.add('hidden');
+      
+      if (screen === 'home') {
+        homeScreen.classList.remove('hidden');
+        shortcuts.classList.add('hidden');
+      } else if (screen === 'practice') {
+        practiceScreen.classList.remove('hidden');
+        shortcuts.classList.remove('hidden');
+      } else if (screen === 'complete') {
+        completeScreen.classList.remove('hidden');
+        shortcuts.classList.add('hidden');
+      }
+      
+      state.currentScreen = screen;
+    }
+
+    function updateProgressBar() {
+      const percentage = (state.timeRemaining / state.totalDuration) * 100;
+      progressBar.style.width = `${percentage}%`;
+    }
+
+    function startTimer() {
+      if (state.timerInterval) {
+        clearInterval(state.timerInterval);
+      }
+      
+      state.timerInterval = setInterval(() => {
+        if (!state.isPaused) {
+          state.timeRemaining--;
+          timer.textContent = formatTime(state.timeRemaining);
+          updateProgressBar();
+          
+          if (state.timeRemaining <= 0) {
+            if (state.phase === 'preparation') {
+              // Switch to speaking phase
+              startSpeakingPhase();
+            } else {
+              // Complete
+              completePractice();
+            }
+          }
+        }
+      }, 1000);
+    }
+
+    function startPreparationPhase() {
+      state.phase = 'preparation';
+      state.timeRemaining = state.preparationDuration;
+      state.totalDuration = state.preparationDuration;
+      state.isPaused = false;
+      
+      practiceCard.classList.remove('speaking-phase', 'complete-phase');
+      practiceCard.classList.add('preparation-phase');
+      phaseLabel.textContent = 'Preparation Time';
+      phaseLabel.className = 'phase-label preparation';
+      timer.textContent = formatTime(state.timeRemaining);
+      timer.classList.add('pulse');
+      pauseBtn.textContent = 'Pause';
+      encouragement.textContent = 'Take a moment to gather your thoughts...';
+      
+      updateProgressBar();
+      startTimer();
+    }
+
+    function startSpeakingPhase() {
+      state.phase = 'speaking';
+      state.timeRemaining = state.speakingDuration;
+      state.totalDuration = state.speakingDuration;
+      state.isPaused = false;
+      
+      practiceCard.classList.remove('preparation-phase', 'complete-phase');
+      practiceCard.classList.add('speaking-phase');
+      phaseLabel.textContent = 'Speaking Time';
+      phaseLabel.className = 'phase-label speaking';
+      timer.textContent = formatTime(state.timeRemaining);
+      timer.classList.remove('pulse');
+      encouragement.textContent = 'You\'re doing great! Keep going...';
+      
+      updateProgressBar();
+      startTimer();
+    }
+
+    function completePractice() {
+      clearInterval(state.timerInterval);
+      state.timerInterval = null;
+      showScreen('complete');
+    }
+
+    function startPractice() {
+      state.currentTopic = getRandomTopic();
+      
+      topicCounter.textContent = `Topic ${state.usedTopics.length} of ${topicsData.length}`;
+      categoryBadge.textContent = state.currentTopic.category;
+      topicText.textContent = state.currentTopic.topic;
+      
+      showScreen('practice');
+      startPreparationPhase();
+    }
+
+    function togglePause() {
+      state.isPaused = !state.isPaused;
+      pauseBtn.textContent = state.isPaused ? 'Resume' : 'Pause';
+      
+      if (state.isPaused) {
+        timer.classList.remove('pulse');
+        encouragement.textContent = 'Paused - Take your time';
+      } else {
+        if (state.phase === 'preparation') {
+          timer.classList.add('pulse');
+          encouragement.textContent = 'Take a moment to gather your thoughts...';
+        } else {
+          encouragement.textContent = 'You\'re doing great! Keep going...';
+        }
+      }
+    }
+
+    function skipTopic() {
+      clearInterval(state.timerInterval);
+      startPractice();
+    }
+
+    function resetTopic() {
+      clearInterval(state.timerInterval);
+      startPreparationPhase();
+    }
+
+    function openSettings() {
+      speakingDurationInput.value = state.speakingDuration;
+      settingsModal.classList.remove('hidden');
+    }
+
+    function closeSettings() {
+      settingsModal.classList.add('hidden');
+    }
+
+    function saveSettings() {
+      const newDuration = parseInt(speakingDurationInput.value);
+      if (newDuration >= 30 && newDuration <= 300) {
+        state.speakingDuration = newDuration;
+      }
+      closeSettings();
+    }
+
+    // Event Listeners
+    startBtn.addEventListener('click', startPractice);
+    pauseBtn.addEventListener('click', togglePause);
+    skipBtn.addEventListener('click', skipTopic);
+    resetBtn.addEventListener('click', resetTopic);
+    nextTopicBtn.addEventListener('click', startPractice);
+    homeBtn.addEventListener('click', () => {
+      clearInterval(state.timerInterval);
+      showScreen('home');
+    });
+
+    settingsBtn.addEventListener('click', openSettings);
+    cancelSettingsBtn.addEventListener('click', closeSettings);
+    saveSettingsBtn.addEventListener('click', saveSettings);
+
+    presetBtns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        speakingDurationInput.value = btn.dataset.duration;
+      });
+    });
+
+    // Close modal on overlay click
+    settingsModal.addEventListener('click', (e) => {
+      if (e.target === settingsModal) {
+        closeSettings();
+      }
+    });
+
+    // Keyboard Shortcuts
+    document.addEventListener('keydown', (e) => {
+      if (state.currentScreen === 'practice') {
+        if (e.code === 'Space') {
+          e.preventDefault();
+          togglePause();
+        } else if (e.code === 'KeyN') {
+          e.preventDefault();
+          skipTopic();
+        } else if (e.code === 'KeyR') {
+          e.preventDefault();
+          resetTopic();
+        }
+      }
+    });
+
+    // Initialize
+    showScreen('home');
+  </script>
+
+</body>
+</html>
