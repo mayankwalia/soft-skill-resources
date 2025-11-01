@@ -9,7 +9,7 @@ This repository contains a structured soft skills development program with:
 - **3-5 real-world activities** per skill for hands-on practice
 - **Reflection prompts** to encourage deeper learning and self-awareness
 - **Curated resources** including books, videos/TED Talks, podcasts, and online courses
-- All resources are current (2023-2024) and accessible
+- Resources are current and accessible (mix of 2021-2024 updated content and timeless classics)
 
 ## The Guide
 
@@ -72,11 +72,13 @@ The CSV file contains the following columns:
 ## Resource Selection Criteria
 
 All resources included meet the following criteria:
-- ✅ Published or updated 2021-2024
+- ✅ Published or updated 2021-2024 (books, courses) OR recognized as timeless classics (some TED Talks)
 - ✅ Highly rated (4.5+ stars on major platforms)
 - ✅ Accessible (available on major platforms)
 - ✅ Relevant to experienced professionals
 - ✅ Actionable and practical
+
+Note: While we prioritize recent resources, some classic TED Talks and foundational content are included due to their enduring relevance and impact in the field.
 
 ## Contributing
 
